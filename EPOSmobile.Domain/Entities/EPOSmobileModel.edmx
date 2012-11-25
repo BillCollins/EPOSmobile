@@ -1,0 +1,849 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EPOSmobile.Domain.Entities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EPOSmobileDomainEntitiesStoreContainer">
+          <EntitySet Name="Addresses" EntityType="EPOSmobile.Domain.Entities.Store.Addresses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employees" EntityType="EPOSmobile.Domain.Entities.Store.Employees" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Menus" EntityType="EPOSmobile.Domain.Entities.Store.Menus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderItems" EntityType="EPOSmobile.Domain.Entities.Store.OrderItems" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Orders" EntityType="EPOSmobile.Domain.Entities.Store.Orders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductGroups" EntityType="EPOSmobile.Domain.Entities.Store.ProductGroups" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="EPOSmobile.Domain.Entities.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Rooms" EntityType="EPOSmobile.Domain.Entities.Store.Rooms" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sales" EntityType="EPOSmobile.Domain.Entities.Store.Sales" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Shifts" EntityType="EPOSmobile.Domain.Entities.Store.Shifts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShiftSchedules" EntityType="EPOSmobile.Domain.Entities.Store.ShiftSchedules" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tables" EntityType="EPOSmobile.Domain.Entities.Store.Tables" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_EmployeeAddress" Association="EPOSmobile.Domain.Entities.Store.FK_EmployeeAddress">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeSales" Association="EPOSmobile.Domain.Entities.Store.FK_EmployeeSales">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuProductGroup" Association="EPOSmobile.Domain.Entities.Store.FK_MenuProductGroup">
+            <End Role="Menus" EntitySet="Menus" />
+            <End Role="ProductGroups" EntitySet="ProductGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderOrderItem" Association="EPOSmobile.Domain.Entities.Store.FK_OrderOrderItem">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductGroupProduct" Association="EPOSmobile.Domain.Entities.Store.FK_ProductGroupProduct">
+            <End Role="ProductGroups" EntitySet="ProductGroups" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductOrderItem" Association="EPOSmobile.Domain.Entities.Store.FK_ProductOrderItem">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoomTable" Association="EPOSmobile.Domain.Entities.Store.FK_RoomTable">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Tables" EntitySet="Tables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrder" Association="EPOSmobile.Domain.Entities.Store.FK_SalesOrder">
+            <End Role="Sales" EntitySet="Sales" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiftEmployee" Association="EPOSmobile.Domain.Entities.Store.FK_ShiftEmployee">
+            <End Role="Shifts" EntitySet="Shifts" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiftSales" Association="EPOSmobile.Domain.Entities.Store.FK_ShiftSales">
+            <End Role="Shifts" EntitySet="Shifts" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiftScheduleShift" Association="EPOSmobile.Domain.Entities.Store.FK_ShiftScheduleShift">
+            <End Role="ShiftSchedules" EntitySet="ShiftSchedules" />
+            <End Role="Shifts" EntitySet="Shifts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableOrder" Association="EPOSmobile.Domain.Entities.Store.FK_TableOrder">
+            <End Role="Tables" EntitySet="Tables" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Addresses">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Street" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StreetNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PostalCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Employee_EmployeeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TelephoneNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EmployeeNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Shift_ShiftID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menus">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderItems">
+          <Key>
+            <PropertyRef Name="OrderItemID" />
+          </Key>
+          <Property Name="OrderItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Order_OrderID" Type="int" Nullable="false" />
+          <Property Name="Product_ProductID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Sale_SalesID" Type="int" Nullable="false" />
+          <Property Name="Table_TableID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductGroups">
+          <Key>
+            <PropertyRef Name="ProductGroupID" />
+          </Key>
+          <Property Name="ProductGroupID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Menu_MenuID" Type="int" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="decimal" Nullable="false" />
+          <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="ProductGroup_ProductGroupID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="RoomID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoomNumber" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="SalesID" />
+          </Key>
+          <Property Name="SalesID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_EmployeeID" Type="int" Nullable="false" />
+          <Property Name="Shift_ShiftID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shifts">
+          <Key>
+            <PropertyRef Name="ShiftID" />
+          </Key>
+          <Property Name="ShiftID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="ShiftSchedule_ShiftScheduleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShiftSchedules">
+          <Key>
+            <PropertyRef Name="ShiftScheduleID" />
+          </Key>
+          <Property Name="ShiftScheduleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Tables">
+          <Key>
+            <PropertyRef Name="TableID" />
+          </Key>
+          <Property Name="TableID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TableNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Room_RoomID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_EmployeeAddress">
+          <End Role="Employees" Type="EPOSmobile.Domain.Entities.Store.Employees" Multiplicity="1" />
+          <End Role="Addresses" Type="EPOSmobile.Domain.Entities.Store.Addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="Employee_EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeSales">
+          <End Role="Employees" Type="EPOSmobile.Domain.Entities.Store.Employees" Multiplicity="1" />
+          <End Role="Sales" Type="EPOSmobile.Domain.Entities.Store.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="Employee_EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuProductGroup">
+          <End Role="Menus" Type="EPOSmobile.Domain.Entities.Store.Menus" Multiplicity="1" />
+          <End Role="ProductGroups" Type="EPOSmobile.Domain.Entities.Store.ProductGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menus">
+              <PropertyRef Name="MenuID" />
+            </Principal>
+            <Dependent Role="ProductGroups">
+              <PropertyRef Name="Menu_MenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderOrderItem">
+          <End Role="Orders" Type="EPOSmobile.Domain.Entities.Store.Orders" Multiplicity="1" />
+          <End Role="OrderItems" Type="EPOSmobile.Domain.Entities.Store.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="Order_OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductGroupProduct">
+          <End Role="ProductGroups" Type="EPOSmobile.Domain.Entities.Store.ProductGroups" Multiplicity="1" />
+          <End Role="Products" Type="EPOSmobile.Domain.Entities.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroups">
+              <PropertyRef Name="ProductGroupID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductGroup_ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductOrderItem">
+          <End Role="Products" Type="EPOSmobile.Domain.Entities.Store.Products" Multiplicity="1" />
+          <End Role="OrderItems" Type="EPOSmobile.Domain.Entities.Store.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="Product_ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoomTable">
+          <End Role="Rooms" Type="EPOSmobile.Domain.Entities.Store.Rooms" Multiplicity="1" />
+          <End Role="Tables" Type="EPOSmobile.Domain.Entities.Store.Tables" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="RoomID" />
+            </Principal>
+            <Dependent Role="Tables">
+              <PropertyRef Name="Room_RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrder">
+          <End Role="Sales" Type="EPOSmobile.Domain.Entities.Store.Sales" Multiplicity="1" />
+          <End Role="Orders" Type="EPOSmobile.Domain.Entities.Store.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sales">
+              <PropertyRef Name="SalesID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Sale_SalesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiftEmployee">
+          <End Role="Shifts" Type="EPOSmobile.Domain.Entities.Store.Shifts" Multiplicity="1" />
+          <End Role="Employees" Type="EPOSmobile.Domain.Entities.Store.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shifts">
+              <PropertyRef Name="ShiftID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Shift_ShiftID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiftSales">
+          <End Role="Shifts" Type="EPOSmobile.Domain.Entities.Store.Shifts" Multiplicity="1" />
+          <End Role="Sales" Type="EPOSmobile.Domain.Entities.Store.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shifts">
+              <PropertyRef Name="ShiftID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="Shift_ShiftID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiftScheduleShift">
+          <End Role="ShiftSchedules" Type="EPOSmobile.Domain.Entities.Store.ShiftSchedules" Multiplicity="1" />
+          <End Role="Shifts" Type="EPOSmobile.Domain.Entities.Store.Shifts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShiftSchedules">
+              <PropertyRef Name="ShiftScheduleID" />
+            </Principal>
+            <Dependent Role="Shifts">
+              <PropertyRef Name="ShiftSchedule_ShiftScheduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableOrder">
+          <End Role="Tables" Type="EPOSmobile.Domain.Entities.Store.Tables" Multiplicity="1" />
+          <End Role="Orders" Type="EPOSmobile.Domain.Entities.Store.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tables">
+              <PropertyRef Name="TableID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Table_TableID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EPOSmobile.Domain.Entities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="EPOSmobileContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Products" EntityType="EPOSmobile.Domain.Entities.Product" />
+          <EntitySet Name="Menus" EntityType="EPOSmobile.Domain.Entities.Menu" />
+          <EntitySet Name="Employees" EntityType="EPOSmobile.Domain.Entities.Employee" />
+          <EntitySet Name="Addresses" EntityType="EPOSmobile.Domain.Entities.Address" />
+          <AssociationSet Name="EmployeeAddress" Association="EPOSmobile.Domain.Entities.EmployeeAddress">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <EntitySet Name="Sales" EntityType="EPOSmobile.Domain.Entities.Sales" />
+          <AssociationSet Name="EmployeeSales" Association="EPOSmobile.Domain.Entities.EmployeeSales">
+            <End EntitySet="Employees" Role="Employee" />
+            <End EntitySet="Sales" Role="Sales" />
+          </AssociationSet>
+          <EntitySet Name="Shifts" EntityType="EPOSmobile.Domain.Entities.Shift" />
+          <EntitySet Name="ProductGroups" EntityType="EPOSmobile.Domain.Entities.ProductGroup" />
+          <AssociationSet Name="MenuProductGroup" Association="EPOSmobile.Domain.Entities.MenuProductGroup">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="ProductGroup" EntitySet="ProductGroups" />
+          </AssociationSet>
+          <AssociationSet Name="ProductGroupProduct" Association="EPOSmobile.Domain.Entities.ProductGroupProduct">
+            <End Role="ProductGroup" EntitySet="ProductGroups" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="ShiftSales" Association="EPOSmobile.Domain.Entities.ShiftSales">
+            <End EntitySet="Shifts" Role="Shift" />
+            <End EntitySet="Sales" Role="Sales" />
+          </AssociationSet>
+          <EntitySet Name="ShiftSchedules" EntityType="EPOSmobile.Domain.Entities.ShiftSchedule" />
+          <AssociationSet Name="ShiftScheduleShift" Association="EPOSmobile.Domain.Entities.ShiftScheduleShift">
+            <End Role="ShiftSchedule" EntitySet="ShiftSchedules" />
+            <End Role="Shift" EntitySet="Shifts" />
+          </AssociationSet>
+          <AssociationSet Name="ShiftEmployee" Association="EPOSmobile.Domain.Entities.ShiftEmployee">
+            <End Role="Shift" EntitySet="Shifts" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <EntitySet Name="Orders" EntityType="EPOSmobile.Domain.Entities.Order" />
+          <EntitySet Name="OrderItems" EntityType="EPOSmobile.Domain.Entities.OrderItem" />
+          <AssociationSet Name="OrderOrderItem" Association="EPOSmobile.Domain.Entities.OrderOrderItem">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="ProductOrderItem" Association="EPOSmobile.Domain.Entities.ProductOrderItem">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="SalesOrder" Association="EPOSmobile.Domain.Entities.SalesOrder">
+            <End Role="Sales" EntitySet="Sales" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <EntitySet Name="Rooms" EntityType="EPOSmobile.Domain.Entities.Room" />
+          <EntitySet Name="Tables" EntityType="EPOSmobile.Domain.Entities.Table" />
+          <AssociationSet Name="TableOrder" Association="EPOSmobile.Domain.Entities.TableOrder">
+            <End Role="Table" EntitySet="Tables" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="RoomTable" Association="EPOSmobile.Domain.Entities.RoomTable">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="Table" EntitySet="Tables" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Type="Int32" Name="ProductID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="Decimal" Name="Price" Nullable="false" />
+          <Property Type="Binary" Name="Picture" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <NavigationProperty Name="ProductGroup" Relationship="EPOSmobile.Domain.Entities.ProductGroupProduct" FromRole="Product" ToRole="ProductGroup" />
+          <NavigationProperty Name="OrderItems" Relationship="EPOSmobile.Domain.Entities.ProductOrderItem" FromRole="Product" ToRole="OrderItem" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Type="Int32" Name="MenuID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <NavigationProperty Name="ProductGroups" Relationship="EPOSmobile.Domain.Entities.MenuProductGroup" FromRole="Menu" ToRole="ProductGroup" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="EPOSmobile.Domain.Entities.EmployeeAddress" FromRole="Employee" ToRole="Address" />
+          <Property Type="String" Name="TelephoneNumber" Nullable="false" />
+          <Property Type="String" Name="EmailAddress" Nullable="false" DefaultValue="" />
+          <Property Type="String" Name="EmployeeNumber" Nullable="false" />
+          <NavigationProperty Name="Sales" Relationship="EPOSmobile.Domain.Entities.EmployeeSales" FromRole="Employee" ToRole="Sales" />
+          <NavigationProperty Name="Shift" Relationship="EPOSmobile.Domain.Entities.ShiftEmployee" FromRole="Employee" ToRole="Shift" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Type="Int32" Name="AddressID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Street" Nullable="false" />
+          <Property Type="String" Name="StreetNumber" Nullable="false" />
+          <Property Type="String" Name="PostalCode" Nullable="false" />
+          <Property Type="String" Name="City" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="EPOSmobile.Domain.Entities.EmployeeAddress" FromRole="Address" ToRole="Employee" />
+        </EntityType>
+        <Association Name="EmployeeAddress">
+          <End Type="EPOSmobile.Domain.Entities.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="EPOSmobile.Domain.Entities.Address" Role="Address" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="SalesID" />
+          </Key>
+          <Property Name="SalesID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="EPOSmobile.Domain.Entities.EmployeeSales" FromRole="Sales" ToRole="Employee" />
+          <NavigationProperty Name="Shift" Relationship="EPOSmobile.Domain.Entities.ShiftSales" FromRole="Sales" ToRole="Shift" />
+          <NavigationProperty Name="Orders" Relationship="EPOSmobile.Domain.Entities.SalesOrder" FromRole="Sales" ToRole="Order" />
+        </EntityType>
+        <Association Name="EmployeeSales">
+          <End Type="EPOSmobile.Domain.Entities.Employee" Multiplicity="1" Role="Employee" />
+          <End Type="EPOSmobile.Domain.Entities.Sales" Multiplicity="*" Role="Sales" />
+        </Association>
+        <EntityType Name="Shift">
+          <Key>
+            <PropertyRef Name="ShiftID" />
+          </Key>
+          <Property Type="Int32" Name="ShiftID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sales" Relationship="EPOSmobile.Domain.Entities.ShiftSales" FromRole="Shift" ToRole="Sales" />
+          <NavigationProperty Name="ShiftSchedule" Relationship="EPOSmobile.Domain.Entities.ShiftScheduleShift" FromRole="Shift" ToRole="ShiftSchedule" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="EPOSmobile.Domain.Entities.ShiftEmployee" FromRole="Shift" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="ProductGroup">
+          <Key>
+            <PropertyRef Name="ProductGroupID" />
+          </Key>
+          <Property Type="Int32" Name="ProductGroupID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Menu" Relationship="EPOSmobile.Domain.Entities.MenuProductGroup" FromRole="ProductGroup" ToRole="Menu" />
+          <NavigationProperty Name="Products" Relationship="EPOSmobile.Domain.Entities.ProductGroupProduct" FromRole="ProductGroup" ToRole="Product" />
+          <Property Type="String" Name="GroupName" Nullable="false" />
+        </EntityType>
+        <Association Name="MenuProductGroup">
+          <End Type="EPOSmobile.Domain.Entities.Menu" Role="Menu" Multiplicity="1" />
+          <End Type="EPOSmobile.Domain.Entities.ProductGroup" Role="ProductGroup" Multiplicity="*" />
+        </Association>
+        <Association Name="ProductGroupProduct">
+          <End Type="EPOSmobile.Domain.Entities.ProductGroup" Role="ProductGroup" Multiplicity="1" />
+          <End Type="EPOSmobile.Domain.Entities.Product" Role="Product" Multiplicity="*" />
+        </Association>
+        <Association Name="ShiftSales">
+          <End Type="EPOSmobile.Domain.Entities.Shift" Multiplicity="1" Role="Shift" />
+          <End Type="EPOSmobile.Domain.Entities.Sales" Multiplicity="*" Role="Sales" />
+        </Association>
+        <EntityType Name="ShiftSchedule">
+          <Key>
+            <PropertyRef Name="ShiftScheduleID" />
+          </Key>
+          <Property Type="Int32" Name="ShiftScheduleID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Shifts" Relationship="EPOSmobile.Domain.Entities.ShiftScheduleShift" FromRole="ShiftSchedule" ToRole="Shift" />
+        </EntityType>
+        <Association Name="ShiftScheduleShift">
+          <End Type="EPOSmobile.Domain.Entities.ShiftSchedule" Role="ShiftSchedule" Multiplicity="1" />
+          <End Type="EPOSmobile.Domain.Entities.Shift" Role="Shift" Multiplicity="*" />
+        </Association>
+        <Association Name="ShiftEmployee">
+          <End Type="EPOSmobile.Domain.Entities.Shift" Role="Shift" Multiplicity="1" />
+          <End Type="EPOSmobile.Domain.Entities.Employee" Role="Employee" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Type="Int32" Name="OrderID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="OrderItems" Relationship="EPOSmobile.Domain.Entities.OrderOrderItem" FromRole="Order" ToRole="OrderItem" />
+          <NavigationProperty Name="Sale" Relationship="EPOSmobile.Domain.Entities.SalesOrder" FromRole="Order" ToRole="Sales" />
+          <NavigationProperty Name="Table" Relationship="EPOSmobile.Domain.Entities.TableOrder" FromRole="Order" ToRole="Table" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="OrderItemID" />
+          </Key>
+          <Property Type="Int32" Name="OrderItemID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Order" Relationship="EPOSmobile.Domain.Entities.OrderOrderItem" FromRole="OrderItem" ToRole="Order" />
+          <NavigationProperty Name="Product" Relationship="EPOSmobile.Domain.Entities.ProductOrderItem" FromRole="OrderItem" ToRole="Product" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" DefaultValue="1" />
+        </EntityType>
+        <Association Name="OrderOrderItem">
+          <End Type="EPOSmobile.Domain.Entities.Order" Role="Order" Multiplicity="1" />
+          <End Type="EPOSmobile.Domain.Entities.OrderItem" Role="OrderItem" Multiplicity="*" />
+        </Association>
+        <Association Name="ProductOrderItem">
+          <End Type="EPOSmobile.Domain.Entities.Product" Role="Product" Multiplicity="1" />
+          <End Type="EPOSmobile.Domain.Entities.OrderItem" Role="OrderItem" Multiplicity="*" />
+        </Association>
+        <Association Name="SalesOrder">
+          <End Type="EPOSmobile.Domain.Entities.Sales" Role="Sales" Multiplicity="1" />
+          <End Type="EPOSmobile.Domain.Entities.Order" Role="Order" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Type="Int32" Name="RoomID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RoomNumber" Nullable="false" />
+          <NavigationProperty Name="Tables" Relationship="EPOSmobile.Domain.Entities.RoomTable" FromRole="Room" ToRole="Table" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="TableID" />
+          </Key>
+          <Property Type="Int32" Name="TableID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Orders" Relationship="EPOSmobile.Domain.Entities.TableOrder" FromRole="Table" ToRole="Order" />
+          <Property Type="String" Name="TableNumber" Nullable="false" />
+          <NavigationProperty Name="Room" Relationship="EPOSmobile.Domain.Entities.RoomTable" FromRole="Table" ToRole="Room" />
+        </EntityType>
+        <Association Name="TableOrder">
+          <End Type="EPOSmobile.Domain.Entities.Table" Role="Table" Multiplicity="1" />
+          <End Type="EPOSmobile.Domain.Entities.Order" Role="Order" Multiplicity="*" />
+        </Association>
+        <Association Name="RoomTable">
+          <End Type="EPOSmobile.Domain.Entities.Room" Role="Room" Multiplicity="1" />
+          <End Type="EPOSmobile.Domain.Entities.Table" Role="Table" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EPOSmobileDomainEntitiesStoreContainer" CdmEntityContainer="EPOSmobileContext">
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Product)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Menu)">
+        <MappingFragment StoreEntitySet="Menus">
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Employee)">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Address)">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="StreetNumber" ColumnName="StreetNumber" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Sales)">
+        <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shifts">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Shift)">
+        <MappingFragment StoreEntitySet="Shifts">
+          <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductGroups">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.ProductGroup)">
+        <MappingFragment StoreEntitySet="ProductGroups">
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShiftSchedules">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.ShiftSchedule)">
+        <MappingFragment StoreEntitySet="ShiftSchedules">
+          <ScalarProperty Name="ShiftScheduleID" ColumnName="ShiftScheduleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Order)">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItems">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.OrderItem)">
+        <MappingFragment StoreEntitySet="OrderItems">
+          <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Room)">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Table)">
+        <MappingFragment StoreEntitySet="Tables">
+          <ScalarProperty Name="TableID" ColumnName="TableID" />
+          <ScalarProperty Name="TableNumber" ColumnName="TableNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EmployeeAddress" TypeName="EPOSmobile.Domain.Entities.EmployeeAddress" StoreEntitySet="Addresses">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="EmployeeID" ColumnName="Employee_EmployeeID" />
+      </EndProperty>
+      <EndProperty Name="Address">
+        <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployeeSales" TypeName="EPOSmobile.Domain.Entities.EmployeeSales" StoreEntitySet="Sales">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="EmployeeID" ColumnName="Employee_EmployeeID" />
+      </EndProperty>
+      <EndProperty Name="Sales">
+        <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MenuProductGroup" TypeName="EPOSmobile.Domain.Entities.MenuProductGroup" StoreEntitySet="ProductGroups">
+      <EndProperty Name="Menu">
+        <ScalarProperty Name="MenuID" ColumnName="Menu_MenuID" />
+      </EndProperty>
+      <EndProperty Name="ProductGroup">
+        <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductGroupProduct" TypeName="EPOSmobile.Domain.Entities.ProductGroupProduct" StoreEntitySet="Products">
+      <EndProperty Name="ProductGroup">
+        <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroup_ProductGroupID" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ShiftSales" TypeName="EPOSmobile.Domain.Entities.ShiftSales" StoreEntitySet="Sales">
+      <EndProperty Name="Shift">
+        <ScalarProperty Name="ShiftID" ColumnName="Shift_ShiftID" />
+      </EndProperty>
+      <EndProperty Name="Sales">
+        <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ShiftScheduleShift" TypeName="EPOSmobile.Domain.Entities.ShiftScheduleShift" StoreEntitySet="Shifts">
+      <EndProperty Name="ShiftSchedule">
+        <ScalarProperty Name="ShiftScheduleID" ColumnName="ShiftSchedule_ShiftScheduleID" />
+      </EndProperty>
+      <EndProperty Name="Shift">
+        <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ShiftEmployee" TypeName="EPOSmobile.Domain.Entities.ShiftEmployee" StoreEntitySet="Employees">
+      <EndProperty Name="Shift">
+        <ScalarProperty Name="ShiftID" ColumnName="Shift_ShiftID" />
+      </EndProperty>
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OrderOrderItem" TypeName="EPOSmobile.Domain.Entities.OrderOrderItem" StoreEntitySet="OrderItems">
+      <EndProperty Name="Order">
+        <ScalarProperty Name="OrderID" ColumnName="Order_OrderID" />
+      </EndProperty>
+      <EndProperty Name="OrderItem">
+        <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductOrderItem" TypeName="EPOSmobile.Domain.Entities.ProductOrderItem" StoreEntitySet="OrderItems">
+      <EndProperty Name="Product">
+        <ScalarProperty Name="ProductID" ColumnName="Product_ProductID" />
+      </EndProperty>
+      <EndProperty Name="OrderItem">
+        <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SalesOrder" TypeName="EPOSmobile.Domain.Entities.SalesOrder" StoreEntitySet="Orders">
+      <EndProperty Name="Sales">
+        <ScalarProperty Name="SalesID" ColumnName="Sale_SalesID" />
+      </EndProperty>
+      <EndProperty Name="Order">
+        <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TableOrder" TypeName="EPOSmobile.Domain.Entities.TableOrder" StoreEntitySet="Orders">
+      <EndProperty Name="Table">
+        <ScalarProperty Name="TableID" ColumnName="Table_TableID" />
+      </EndProperty>
+      <EndProperty Name="Order">
+        <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RoomTable" TypeName="EPOSmobile.Domain.Entities.RoomTable" StoreEntitySet="Tables">
+      <EndProperty Name="Room">
+        <ScalarProperty Name="RoomID" ColumnName="Room_RoomID" />
+      </EndProperty>
+      <EndProperty Name="Table">
+        <ScalarProperty Name="TableID" ColumnName="TableID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DatabaseGenerationWorkflow" Value="$(VSEFTools)\DBGen\Generate Migration T-SQL.xaml" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="EPOSmobileDomainModel" >
+        <EntityTypeShape EntityType="EPOSmobile.Domain.Entities.Product" Width="1.5" PointX="3.375" PointY="5.5" Height="2.5571907552083326" />
+        <EntityTypeShape EntityType="EPOSmobile.Domain.Entities.Menu" Width="1.5" PointX="0.625" PointY="3" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="EPOSmobile.Domain.Entities.Employee" Width="1.5" PointX="6.25" PointY="7.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="EPOSmobile.Domain.Entities.Address" Width="1.5" PointX="3.375" PointY="8.625" Height="2.1725878906249996" />
+        <AssociationConnector Association="EPOSmobile.Domain.Entities.EmployeeAddress">
+          <ConnectorPoint PointX="6.25" PointY="9.56224609375" />
+          <ConnectorPoint PointX="4.875" PointY="9.56224609375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EPOSmobile.Domain.Entities.Sales" PointX="6.25" PointY="5.5" Width="1.5" Height="1.7879850260416665" />
+        <AssociationConnector Association="EPOSmobile.Domain.Entities.EmployeeSales">
+          <ConnectorPoint PointX="7" PointY="7.75" />
+          <ConnectorPoint PointX="7" PointY="7.2879850260416665" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EPOSmobile.Domain.Entities.Shift" Width="1.5" PointX="9" PointY="5.375" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="EPOSmobile.Domain.Entities.ProductGroup" Width="1.5" PointX="0.625" PointY="6" Height="1.7879850260416657" />
+        <AssociationConnector Association="EPOSmobile.Domain.Entities.MenuProductGroup">
+          <ConnectorPoint PointX="1.375" PointY="4.9802864583333335" />
+          <ConnectorPoint PointX="1.375" PointY="6" />
+        </AssociationConnector>
+        <AssociationConnector Association="EPOSmobile.Domain.Entities.ProductGroupProduct">
+          <ConnectorPoint PointX="2.125" PointY="6.8939925130208328" />
+          <ConnectorPoint PointX="3.375" PointY="6.8939925130208328" />
+        </AssociationConnector>
+        <AssociationConnector Association="EPOSmobile.Domain.Entities.ShiftSales">
+          <ConnectorPoint PointX="9" PointY="6.3939925130208337" />
+          <ConnectorPoint PointX="7.75" PointY="6.3939925130208337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EPOSmobile.Domain.Entities.ShiftSchedule" Width="1.5" PointX="9" PointY="3" Height="1.4033821614583335" />
+        <AssociationConnector Association="EPOSmobile.Domain.Entities.ShiftScheduleShift">
+          <ConnectorPoint PointX="9.75" PointY="4.4033821614583335" />
+          <ConnectorPoint PointX="9.75" PointY="5.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="EPOSmobile.Domain.Entities.ShiftEmployee">
+          <ConnectorPoint PointX="9.75" PointY="7.547587890625" />
+          <ConnectorPoint PointX="9.75" PointY="9.12474609375" />
+          <ConnectorPoint PointX="7.75" PointY="9.12474609375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EPOSmobile.Domain.Entities.Order" Width="1.5" PointX="6.125" PointY="3.125" Height="1.59568359375" />
+        <EntityTypeShape EntityType="EPOSmobile.Domain.Entities.OrderItem" Width="1.5" PointX="3.375" PointY="3.125" Height="1.7879850260416665" />
+        <AssociationConnector Association="EPOSmobile.Domain.Entities.OrderOrderItem">
+          <ConnectorPoint PointX="6.125" PointY="3.922841796875" />
+          <ConnectorPoint PointX="4.875" PointY="3.922841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="EPOSmobile.Domain.Entities.ProductOrderItem">
+          <ConnectorPoint PointX="4.125" PointY="5.5" />
+          <ConnectorPoint PointX="4.125" PointY="4.9129850260416665" />
+        </AssociationConnector>
+        <AssociationConnector Association="EPOSmobile.Domain.Entities.SalesOrder">
+          <ConnectorPoint PointX="6.9375" PointY="5.5" />
+          <ConnectorPoint PointX="6.9375" PointY="4.72068359375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EPOSmobile.Domain.Entities.Room" Width="1.5" PointX="3.375" PointY="0.75" Height="1.59568359375" />
+        <EntityTypeShape EntityType="EPOSmobile.Domain.Entities.Table" Width="1.5" PointX="6.125" PointY="0.75" Height="1.7879850260416665" />
+        <AssociationConnector Association="EPOSmobile.Domain.Entities.TableOrder">
+          <ConnectorPoint PointX="6.875" PointY="2.5379850260416665" />
+          <ConnectorPoint PointX="6.875" PointY="3.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="EPOSmobile.Domain.Entities.RoomTable">
+          <ConnectorPoint PointX="4.875" PointY="1.547841796875" />
+          <ConnectorPoint PointX="6.125" PointY="1.547841796875" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

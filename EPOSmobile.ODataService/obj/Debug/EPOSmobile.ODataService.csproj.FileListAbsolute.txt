@@ -1,0 +1,7 @@
+C:\Users\SchlemmerT\Documents\GitHub\EPOSmobile\EPOSmobile\EPOSmobile.ODataService\bin\EPOSmobile.ODataService.dll
+C:\Users\SchlemmerT\Documents\GitHub\EPOSmobile\EPOSmobile\EPOSmobile.ODataService\bin\EPOSmobile.ODataService.pdb
+C:\Users\SchlemmerT\Documents\GitHub\EPOSmobile\EPOSmobile\EPOSmobile.ODataService\bin\EPOSmobile.Domain.dll
+C:\Users\SchlemmerT\Documents\GitHub\EPOSmobile\EPOSmobile\EPOSmobile.ODataService\bin\EPOSmobile.Domain.pdb
+C:\Users\SchlemmerT\Documents\GitHub\EPOSmobile\EPOSmobile\EPOSmobile.ODataService\obj\Debug\EPOSmobile.ODataService.csprojResolveAssemblyReference.cache
+C:\Users\SchlemmerT\Documents\GitHub\EPOSmobile\EPOSmobile\EPOSmobile.ODataService\obj\Debug\EPOSmobile.ODataService.dll
+C:\Users\SchlemmerT\Documents\GitHub\EPOSmobile\EPOSmobile\EPOSmobile.ODataService\obj\Debug\EPOSmobile.ODataService.pdb

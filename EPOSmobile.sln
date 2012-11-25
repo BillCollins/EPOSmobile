@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPOSmobile.Domain", "EPOSmobile.Domain\EPOSmobile.Domain.csproj", "{1ACA80B6-06A8-4889-9A49-1670339AE409}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPOSmobile.ODataService", "EPOSmobile.ODataService\EPOSmobile.ODataService.csproj", "{BA487E4D-050B-4C41-8C43-CCF1B3E0EC7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1ACA80B6-06A8-4889-9A49-1670339AE409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ACA80B6-06A8-4889-9A49-1670339AE409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ACA80B6-06A8-4889-9A49-1670339AE409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ACA80B6-06A8-4889-9A49-1670339AE409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA487E4D-050B-4C41-8C43-CCF1B3E0EC7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA487E4D-050B-4C41-8C43-CCF1B3E0EC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA487E4D-050B-4C41-8C43-CCF1B3E0EC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA487E4D-050B-4C41-8C43-CCF1B3E0EC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EPOSmobileDomainEntitiesStoreContainer" CdmEntityContainer="EPOSmobileContext">
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Product)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Menu)">
+        <MappingFragment StoreEntitySet="Menus">
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Employee)">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Address)">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="StreetNumber" ColumnName="StreetNumber" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Sales)">
+        <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shifts">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Shift)">
+        <MappingFragment StoreEntitySet="Shifts">
+          <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductGroups">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.ProductGroup)">
+        <MappingFragment StoreEntitySet="ProductGroups">
+          <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShiftSchedules">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.ShiftSchedule)">
+        <MappingFragment StoreEntitySet="ShiftSchedules">
+          <ScalarProperty Name="ShiftScheduleID" ColumnName="ShiftScheduleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Order)">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItems">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.OrderItem)">
+        <MappingFragment StoreEntitySet="OrderItems">
+          <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Room)">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="IsTypeOf(EPOSmobile.Domain.Entities.Table)">
+        <MappingFragment StoreEntitySet="Tables">
+          <ScalarProperty Name="TableID" ColumnName="TableID" />
+          <ScalarProperty Name="TableNumber" ColumnName="TableNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EmployeeAddress" TypeName="EPOSmobile.Domain.Entities.EmployeeAddress" StoreEntitySet="Addresses">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="EmployeeID" ColumnName="Employee_EmployeeID" />
+      </EndProperty>
+      <EndProperty Name="Address">
+        <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployeeSales" TypeName="EPOSmobile.Domain.Entities.EmployeeSales" StoreEntitySet="Sales">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="EmployeeID" ColumnName="Employee_EmployeeID" />
+      </EndProperty>
+      <EndProperty Name="Sales">
+        <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MenuProductGroup" TypeName="EPOSmobile.Domain.Entities.MenuProductGroup" StoreEntitySet="ProductGroups">
+      <EndProperty Name="Menu">
+        <ScalarProperty Name="MenuID" ColumnName="Menu_MenuID" />
+      </EndProperty>
+      <EndProperty Name="ProductGroup">
+        <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductGroupProduct" TypeName="EPOSmobile.Domain.Entities.ProductGroupProduct" StoreEntitySet="Products">
+      <EndProperty Name="ProductGroup">
+        <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroup_ProductGroupID" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ShiftSales" TypeName="EPOSmobile.Domain.Entities.ShiftSales" StoreEntitySet="Sales">
+      <EndProperty Name="Shift">
+        <ScalarProperty Name="ShiftID" ColumnName="Shift_ShiftID" />
+      </EndProperty>
+      <EndProperty Name="Sales">
+        <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ShiftScheduleShift" TypeName="EPOSmobile.Domain.Entities.ShiftScheduleShift" StoreEntitySet="Shifts">
+      <EndProperty Name="ShiftSchedule">
+        <ScalarProperty Name="ShiftScheduleID" ColumnName="ShiftSchedule_ShiftScheduleID" />
+      </EndProperty>
+      <EndProperty Name="Shift">
+        <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ShiftEmployee" TypeName="EPOSmobile.Domain.Entities.ShiftEmployee" StoreEntitySet="Employees">
+      <EndProperty Name="Shift">
+        <ScalarProperty Name="ShiftID" ColumnName="Shift_ShiftID" />
+      </EndProperty>
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OrderOrderItem" TypeName="EPOSmobile.Domain.Entities.OrderOrderItem" StoreEntitySet="OrderItems">
+      <EndProperty Name="Order">
+        <ScalarProperty Name="OrderID" ColumnName="Order_OrderID" />
+      </EndProperty>
+      <EndProperty Name="OrderItem">
+        <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductOrderItem" TypeName="EPOSmobile.Domain.Entities.ProductOrderItem" StoreEntitySet="OrderItems">
+      <EndProperty Name="Product">
+        <ScalarProperty Name="ProductID" ColumnName="Product_ProductID" />
+      </EndProperty>
+      <EndProperty Name="OrderItem">
+        <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SalesOrder" TypeName="EPOSmobile.Domain.Entities.SalesOrder" StoreEntitySet="Orders">
+      <EndProperty Name="Sales">
+        <ScalarProperty Name="SalesID" ColumnName="Sale_SalesID" />
+      </EndProperty>
+      <EndProperty Name="Order">
+        <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TableOrder" TypeName="EPOSmobile.Domain.Entities.TableOrder" StoreEntitySet="Orders">
+      <EndProperty Name="Table">
+        <ScalarProperty Name="TableID" ColumnName="Table_TableID" />
+      </EndProperty>
+      <EndProperty Name="Order">
+        <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RoomTable" TypeName="EPOSmobile.Domain.Entities.RoomTable" StoreEntitySet="Tables">
+      <EndProperty Name="Room">
+        <ScalarProperty Name="RoomID" ColumnName="Room_RoomID" />
+      </EndProperty>
+      <EndProperty Name="Table">
+        <ScalarProperty Name="TableID" ColumnName="TableID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
