@@ -24,6 +24,20 @@ namespace EPOSmobile.Domain.Entities
             get;
             set;
         }
+    
+        public virtual bool IsOpen
+        {
+            get { return _isOpen; }
+            set { _isOpen = value; }
+        }
+        private bool _isOpen = true;
+    
+        public virtual bool IsCleared
+        {
+            get { return _isCleared; }
+            set { _isCleared = value; }
+        }
+        private bool _isCleared = false;
 
         #endregion
         #region Navigation Properties
